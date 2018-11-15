@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Tests\Acme\SyliusExamplePlugin\Application;
+namespace Tests\PhpMob\SyliusBankPaymentPlugin\Application;
 
 use ProxyManager\Proxy\VirtualProxyInterface;
 use PSS\SymfonyMockerContainer\DependencyInjection\MockerContainer;

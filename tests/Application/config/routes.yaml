@@ -1,9 +1,9 @@
-acme_sylius_example_shop:
-    resource: "@AcmeSyliusExamplePlugin/Resources/config/shop_routing.yml"
+phpmob_sylius_bank_payment_shop:
+    resource: "@PhpMobSyliusBankPaymentPlugin/Resources/config/shop_routing.yml"
     prefix: /{_locale}
     requirements:
         _locale: ^[a-z]{2}(?:_[A-Z]{2})?$
 
-acme_sylius_example_admin:
-    resource: "@AcmeSyliusExamplePlugin/Resources/config/admin_routing.yml"
+phpmob_sylius_bank_payment_admin:
+    resource: "@PhpMobSyliusBankPaymentPlugin/Resources/config/admin_routing.yml"
     prefix: /admin

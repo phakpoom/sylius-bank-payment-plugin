@@ -4,5 +4,6 @@
 (cd tests/Application && yarn build)
 (cd tests/Application && bin/console assets:install public -e test)
 
+(cd tests/Application && bin/console doctrine:database:drop --force -e test)
 (cd tests/Application && bin/console doctrine:database:create -e test)
 (cd tests/Application && bin/console doctrine:schema:create -e test)

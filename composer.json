@@ -1,8 +1,8 @@
 {
-    "name": "sylius/plugin-skeleton",
+    "name": "phpmob/sylius-bank-payment-plugin",
     "type": "sylius-plugin",
     "keywords": ["sylius", "sylius-plugin"],
-    "description": "Acme example plugin for Sylius.",
+    "description": "PhpMob Bank Payment plugin for Sylius.",
     "license": "MIT",
     "require": {
         "php": "^7.2",
@@ -39,8 +39,8 @@
     "prefer-stable": true,
     "autoload": {
         "psr-4": {
-            "Acme\\SyliusExamplePlugin\\": "src/",
-            "Tests\\Acme\\SyliusExamplePlugin\\": "tests/"
+            "PhpMob\\SyliusBankPaymentPlugin\\": "src/",
+            "Tests\\PhpMob\\SyliusBankPaymentPlugin\\": "tests/"
         }
     },
     "extra": {
