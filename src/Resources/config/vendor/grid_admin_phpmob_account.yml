@@ -8,9 +8,21 @@ sylius_grid:
             sorting:
                 number: asc
             fields:
+                bank:
+                    type: string
+                    label: Bank
+                    path: bank.name
                 number:
                     type: string
                     label: Number
+                    sortable: ~
+                name:
+                    type: string
+                    label: Name
+                    sortable: ~
+                branch:
+                    type: string
+                    label: Branch
                     sortable: ~
             actions:
                 main:
