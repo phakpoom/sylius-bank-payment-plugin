@@ -26,7 +26,7 @@
 
         <many-to-one field="bank" target-entity="PhpMob\SyliusBankPaymentPlugin\Model\BankInterface"
                      inversed-by="accounts">
-            <join-column column-definition="bank_id" referenced-column-name="id" nullable="false"/>
+            <join-column name="bank_id" referenced-column-name="id" nullable="false"/>
         </many-to-one>
 
     </mapped-superclass>
