@@ -2,6 +2,11 @@
 
 <constraint-mapping xmlns="http://symfony.com/schema/dic/constraint-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://symfony.com/schema/dic/constraint-mapping http://symfony.com/schema/dic/services/constraint-mapping-1.0.xsd">
     <class name="PhpMob\SyliusBankPaymentPlugin\Model\Account">
+        <property name="translations">
+            <constraint name="Valid">
+                <option name="groups">phpmob</option>
+            </constraint>
+        </property>
         <property name="number">
             <constraint name="NotBlank">
                 <option name="message">phpmob.account.number.not_blank</option>

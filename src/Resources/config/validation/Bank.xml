@@ -7,6 +7,11 @@
             <option name="message">phpmob.bank.code.unique</option>
             <option name="groups">phpmob</option>
         </constraint>
+        <property name="translations">
+            <constraint name="Valid">
+                <option name="groups">phpmob</option>
+            </constraint>
+        </property>
         <property name="code">
             <constraint name="NotBlank">
                 <option name="message">phpmob.bank.code.not_blank</option>
