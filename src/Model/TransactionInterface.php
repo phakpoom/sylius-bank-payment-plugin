@@ -12,7 +12,8 @@ use Sylius\Component\User\Model\UserAwareInterface;
 interface TransactionInterface extends
     ResourceInterface,
     TimestampableInterface,
-    UserAwareInterface
+    UserAwareInterface,
+    ImageAwareInterface
 {
     const STATE_DRAFT = 'draft';
     const STATE_NEW = 'new';

@@ -6,6 +6,7 @@ namespace PhpMob\SyliusBankPaymentPlugin\Model;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
+use Sylius\Component\Core\Model\ImageInterface;
 use Sylius\Component\Resource\Model\TimestampableTrait;
 use Sylius\Component\Resource\Model\TranslatableTrait;
 
@@ -129,6 +130,22 @@ class Bank implements BankInterface, BankTranslationInterface
     public function getAccounts(): Collection
     {
         return $this->accounts;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getImage(): ?ImageInterface
+    {
+        return $this->logo;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function setImage(?ImageInterface $image): void
+    {
+        $this->logo = $image;
     }
 
     /**

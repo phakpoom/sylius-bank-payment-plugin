@@ -14,7 +14,8 @@ interface BankInterface extends
     CodeAwareInterface,
     ResourceInterface,
     TranslatableInterface,
-    TimestampableInterface
+    TimestampableInterface,
+    ImageAwareInterface
 {
     /**
      * @return null|BankLogoInterface

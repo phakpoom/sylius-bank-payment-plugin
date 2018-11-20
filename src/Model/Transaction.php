@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMob\SyliusBankPaymentPlugin\Model;
 
+use Sylius\Component\Core\Model\ImageInterface;
 use Sylius\Component\Core\Model\PaymentInterface as BasePaymentInterface;
 use Sylius\Component\Resource\Model\TimestampableTrait;
 use Sylius\Component\User\Model\UserInterface;
@@ -233,5 +234,21 @@ class Transaction implements TransactionInterface
     public function setUser(?UserInterface $user)
     {
         $this->user = $user;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getImage(): ?ImageInterface
+    {
+        return $this->slip;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function setImage(?ImageInterface $image): void
+    {
+        $this->slip = $image;
     }
 }

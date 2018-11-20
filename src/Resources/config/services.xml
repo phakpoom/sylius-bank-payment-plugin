@@ -12,5 +12,12 @@
         <service id="phpmob.validator.order_number_exists" class="PhpMob\SyliusBankPaymentPlugin\Validator\Constraints\OrderNumberExistsValidator">
             <tag name="validator" alias="phpmob.validator.order_number_exists"/>
         </service>
+        <service id="phpmob.listener.images_upload" class="PhpMob\SyliusBankPaymentPlugin\EventListener\ImageUploadListener">
+            <argument type="service" id="sylius.image_uploader" />
+            <tag name="kernel.event_listener" event="phpmob.bank.pre_create" method="uploadImage" />
+            <tag name="kernel.event_listener" event="phpmob.bank.pre_update" method="uploadImage" />
+            <tag name="kernel.event_listener" event="phpmob.transaction.pre_create" method="uploadImage" />
+            <tag name="kernel.event_listener" event="phpmob.transaction.pre_update" method="uploadImage" />
+        </service>
     </services>
 </container>
