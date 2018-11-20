@@ -9,5 +9,8 @@
         <service id="phpmob.menu.admin_menu_builder" class="PhpMob\SyliusBankPaymentPlugin\Menu\AdminMenuBuilder">
             <tag name="kernel.event_listener" event="sylius.menu.admin.main" method="buildMenu"/>
         </service>
+        <service id="phpmob.validator.order_number_exists" class="PhpMob\SyliusBankPaymentPlugin\Validator\Constraints\OrderNumberExistsValidator">
+            <tag name="validator" alias="phpmob.validator.order_number_exists"/>
+        </service>
     </services>
 </container>

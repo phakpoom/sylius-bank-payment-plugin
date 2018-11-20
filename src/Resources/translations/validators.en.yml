@@ -1,0 +1,36 @@
+phpmob:
+    account:
+        number:
+            not_blank: Account should not be blank.
+        bank:
+            not_blank: Bank of account should not be blank.
+        name:
+            not_blank: Account's name should not be blank.
+        branch:
+            not_blank: Branch should not be blank.
+    bank:
+        code:
+            unique: Bank's code should be unique.
+            not_blank: Bank's code should not be blank.
+            regex: Bank's code should not contrains special charactors.
+        name:
+            not_blank: Bank's name should not be blank.
+    bank_logo:
+        file:
+            max_size: Bank's logo size should not greater than 2MB.
+            upload_ini_size: Bank's logo size over than your system limit.
+    slip:
+        file:
+            max_size: Slip image size should not greater than 10MB.
+            upload_ini_size: Slip image size over than system limit.
+    transaction:
+        order_number:
+            not_blank: Order number should not be blank.
+            exists: Order number was not exists.
+        transferred_at:
+            not_blank: Please fullfil your transferred time.
+        amount:
+            not_blank: Amount should not be blank.
+            greater_than: Amount should be greater than 0.
+        slip:
+            not_blank: Slip image should not be blank.

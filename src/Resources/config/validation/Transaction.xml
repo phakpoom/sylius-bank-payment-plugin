@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<constraint-mapping xmlns="http://symfony.com/schema/dic/constraint-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://symfony.com/schema/dic/constraint-mapping http://symfony.com/schema/dic/services/constraint-mapping-1.0.xsd">
+    <class name="PhpMob\SyliusBankPaymentPlugin\Model\Transaction">
+        <property name="orderNumber">
+            <constraint name="NotBlank">
+                <option name="message">phpmob.transaction.order_number.not_blank</option>
+                <option name="groups">phpmob</option>
+            </constraint>
+            <constraint name="PhpMob\SyliusBankPaymentPlugin\Validator\Constraints\OrderNumberExists">
+                <option name="message">phpmob.transaction.order_number.exists</option>
+                <option name="groups">phpmob</option>
+            </constraint>
+        </property>
+        <property name="transferredAt">
+            <constraint name="NotBlank">
+                <option name="message">phpmob.transaction.transferred_at.not_blank</option>
+                <option name="groups">phpmob</option>
+            </constraint>
+        </property>
+        <property name="amount">
+            <constraint name="NotBlank">
+                <option name="message">phpmob.transaction.amount.not_blank</option>
+                <option name="groups">phpmob</option>
+            </constraint>
+            <constraint name="GreaterThan">
+                <option name="value">0</option>
+                <option name="message">phpmob.transaction.amount.greater_than</option>
+                <option name="groups">phpmob</option>
+            </constraint>
+        </property>
+        <property name="slip">
+            <constraint name="NotBlank">
+                <option name="message">phpmob.transaction.slip.not_blank</option>
+                <option name="groups">phpmob</option>
+            </constraint>
+        </property>
+    </class>
+</constraint-mapping>

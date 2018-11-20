@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<constraint-mapping xmlns="http://symfony.com/schema/dic/constraint-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://symfony.com/schema/dic/constraint-mapping http://symfony.com/schema/dic/services/constraint-mapping-1.0.xsd">
+    <class name="PhpMob\SyliusBankPaymentPlugin\Model\AccountTranslation">
+        <constraint name="Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity">
+            <option name="fields">code</option>
+            <option name="message">phpmob.bank.code.unique</option>
+            <option name="groups">phpmob</option>
+        </constraint>
+        <property name="code">
+            <constraint name="NotBlank">
+                <option name="message">phpmob.bank.code.not_blank</option>
+                <option name="groups">phpmob</option>
+            </constraint>
+            <constraint name="Regex">
+                <option name="message">phpmob.bank.code.regex</option>
+                <option name="pattern">/^[\w-]*$/</option>
+                <option name="groups">phpmob</option>
+            </constraint>
+        </property>
+    </class>
+</constraint-mapping>

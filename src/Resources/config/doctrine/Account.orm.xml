@@ -8,6 +8,7 @@
     <mapped-superclass name="PhpMob\SyliusBankPaymentPlugin\Model\Account" table="phpmob_bank_payment_account">
         <indexes>
             <index columns="enabled"/>
+            <index columns="number"/>
         </indexes>
 
         <id name="id" column="id" type="integer">

@@ -1,8 +1,13 @@
 phpmob:
     ui:
         banks: Banks
+        new_bank: New Bank
+        edit_bank: Edit Bank
         accounts: Accounts
+        new_account: New Account
+        edit_account: Edit Account
         transactions: Transactions
+        new_transaction: New Transaction
     menu:
         bank_payment: Bank Payment
         bank_payment_banks: Banks

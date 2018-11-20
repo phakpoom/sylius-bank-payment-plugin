@@ -6,6 +6,8 @@
     <mapped-superclass name="PhpMob\SyliusBankPaymentPlugin\Model\Transaction" table="phpmob_bank_payment_transaction">
         <indexes>
             <index columns="state"/>
+            <index columns="order_number"/>
+            <index columns="transferred_at"/>
         </indexes>
 
         <id name="id" column="id" type="integer">
