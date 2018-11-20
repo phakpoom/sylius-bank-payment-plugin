@@ -18,7 +18,7 @@ class AdminMenuBuilder
 
         $cmsRootMenuItem
             ->addChild('banks', [
-                'route' => 'phpmob_admin_bank_payment_bank_index',
+                'route' => 'phpmob_admin_bank_index',
             ])
             ->setLabel('phpmob.menu.bank_payment_banks')
             ->setLabelAttribute('icon', 'file')
@@ -26,7 +26,7 @@ class AdminMenuBuilder
 
         $cmsRootMenuItem
             ->addChild('accounts', [
-                'route' => 'phpmob_admin_bank_payment_account_index',
+                'route' => 'phpmob_admin_account_index',
             ])
             ->setLabel('phpmob.menu.bank_payment_accounts')
             ->setLabelAttribute('icon', 'file')
@@ -34,7 +34,7 @@ class AdminMenuBuilder
 
         $cmsRootMenuItem
             ->addChild('transactions', [
-                'route' => 'phpmob_admin_bank_payment_transaction_index',
+                'route' => 'phpmob_admin_transaction_index',
             ])
             ->setLabel('phpmob.menu.bank_payment_transactions')
             ->setLabelAttribute('icon', 'file')
