@@ -3,25 +3,25 @@
 <container xmlns="http://symfony.com/schema/dic/services" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
            xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
     <parameters>
-        <parameter type="collection" id="phpmob.validation_group.account_translation">
+        <parameter type="collection" key="phpmob.validation_group.account_translation">
             <parameter>phpmob</parameter>
         </parameter>
-        <parameter type="collection" id="phpmob.validation_group.account">
+        <parameter type="collection" key="phpmob.validation_group.account">
             <parameter>phpmob</parameter>
         </parameter>
-        <parameter type="collection" id="phpmob.validation_group.bank_logo">
+        <parameter type="collection" key="phpmob.validation_group.bank_logo">
             <parameter>phpmob</parameter>
         </parameter>
-        <parameter type="collection" id="phpmob.validation_group.bank_translation">
+        <parameter type="collection" key="phpmob.validation_group.bank_translation">
             <parameter>phpmob</parameter>
         </parameter>
-        <parameter type="collection" id="phpmob.validation_group.bank">
+        <parameter type="collection" key="phpmob.validation_group.bank">
             <parameter>phpmob</parameter>
         </parameter>
-        <parameter type="collection" id="phpmob.validation_group.slip">
+        <parameter type="collection" key="phpmob.validation_group.slip">
             <parameter>phpmob</parameter>
         </parameter>
-        <parameter type="collection" id="phpmob.validation_group.transaction">
+        <parameter type="collection" key="phpmob.validation_group.transaction">
             <parameter>phpmob</parameter>
         </parameter>
     </parameters>
