@@ -84,6 +84,10 @@ class Bank implements BankInterface, BankTranslationInterface
     public function setLogo(?BankLogoInterface $logo): void
     {
         $this->logo = $logo;
+
+        if ($logo) {
+            $logo->setOwner($this);
+        }
     }
 
     /**
@@ -137,7 +141,7 @@ class Bank implements BankInterface, BankTranslationInterface
      */
     public function getImage(): ?ImageInterface
     {
-        return $this->logo;
+        return $this->getLogo();
     }
 
     /**
@@ -145,7 +149,7 @@ class Bank implements BankInterface, BankTranslationInterface
      */
     public function setImage(?ImageInterface $image): void
     {
-        $this->logo = $image;
+        $this->setLogo($image);
     }
 
     /**

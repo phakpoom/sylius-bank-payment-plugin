@@ -122,6 +122,10 @@ class Transaction implements TransactionInterface
     public function setSlip(?SlipInterface $slip): void
     {
         $this->slip = $slip;
+
+        if ($slip) {
+            $slip->setOwner($this);
+        }
     }
 
     /**
@@ -241,7 +245,7 @@ class Transaction implements TransactionInterface
      */
     public function getImage(): ?ImageInterface
     {
-        return $this->slip;
+        return $this->getSlip();
     }
 
     /**
@@ -249,6 +253,6 @@ class Transaction implements TransactionInterface
      */
     public function setImage(?ImageInterface $image): void
     {
-        $this->slip = $image;
+        $this->setSlip($image);
     }
 }
