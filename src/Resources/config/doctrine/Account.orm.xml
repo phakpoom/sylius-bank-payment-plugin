@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping"
+                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                  xmlns:gedmo="http://gediminasm.org/schemas/orm/doctrine-extensions-mapping"
+                  xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+
+    <mapped-superclass name="PhpMob\SyliusBankPaymentPlugin\Model\Account" table="phpmob_bank_payment_account">
+        <indexes>
+            <index columns="enabled"/>
+        </indexes>
+
+        <id name="id" column="id" type="integer">
+            <generator strategy="AUTO"/>
+        </id>
+
+        <field name="enabled" type="boolean"/>
+        <field name="number" type="string" nullable="false" length="100"/>
+
+        <field name="createdAt" column="created_at" type="datetime">
+            <gedmo:timestampable on="create"/>
+        </field>
+        <field name="updatedAt" column="updated_at" type="datetime" nullable="true">
+            <gedmo:timestampable on="update"/>
+        </field>
+
+        <many-to-one field="bank" target-entity="PhpMob\SyliusBankPaymentPlugin\Model\BankInterface"
+                     inversed-by="accounts">
+            <join-column column-definition="bank_id" referenced-column-name="id" nullable="false"/>
+        </many-to-one>
+
+    </mapped-superclass>
+</doctrine-mapping>

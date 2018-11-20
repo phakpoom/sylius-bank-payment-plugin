@@ -1,0 +1,14 @@
+phpmob_sylius_bank_payment_plugin_admin_bank:
+    type: sylius.resource
+    resource: |
+        alias: phpmob.bank
+        section: admin
+        templates: "@SyliusAdmin\\Crud"
+        except: ['show']
+        redirect: index
+        grid: grid_admin_phpmob_bank
+        permission: true
+        vars:
+            all:
+                templates:
+                    form: "@PhpMobSyliusBankPaymentPlugin/Admin/Bank/_form.html.twig"

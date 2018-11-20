@@ -1,0 +1,2 @@
+imports:
+    - { resource: '@PhpMobSyliusBankPaymentPlugin/Resources/config/vendor/*' }

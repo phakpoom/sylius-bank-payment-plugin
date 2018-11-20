@@ -1,0 +1,37 @@
+sylius_resource:
+    resources:
+        phpmob.account:
+            classes:
+                model: PhpMob\SyliusBankPaymentPlugin\Model\Account
+                interface: PhpMob\SyliusBankPaymentPlugin\Model\AccountInterface
+                form: PhpMob\SyliusBankPaymentPlugin\Form\Type\AccountType
+            translation:
+                classes:
+                    model: PhpMob\SyliusBankPaymentPlugin\Model\AccountTranslation
+                    interface: PhpMob\SyliusBankPaymentPlugin\Model\AccountTranslationInterface
+                    form: PhpMob\SyliusBankPaymentPlugin\Form\Type\AccountTranslationType
+        phpmob.bank:
+            classes:
+                model: PhpMob\SyliusBankPaymentPlugin\Model\Bank
+                interface: PhpMob\SyliusBankPaymentPlugin\Model\BankInterface
+                form: PhpMob\SyliusBankPaymentPlugin\Form\Type\BankType
+            translation:
+                classes:
+                    model: PhpMob\SyliusBankPaymentPlugin\Model\BankTranslation
+                    interface: PhpMob\SyliusBankPaymentPlugin\Model\BankTranslationInterface
+                    form: PhpMob\SyliusBankPaymentPlugin\Form\Type\BankTranslationType
+        phpmob.bank_logo:
+            classes:
+                model: PhpMob\SyliusBankPaymentPlugin\Model\BankLogo
+                interface: PhpMob\SyliusBankPaymentPlugin\Model\BankLogoInterface
+                form: PhpMob\SyliusBankPaymentPlugin\Form\Type\BankLogoType
+        phpmob.slip:
+            classes:
+                model: PhpMob\SyliusBankPaymentPlugin\Model\Slip
+                interface: PhpMob\SyliusBankPaymentPlugin\Model\SlipInterface
+                form: PhpMob\SyliusBankPaymentPlugin\Form\Type\SlipType
+        phpmob.transaction:
+            classes:
+                model: PhpMob\SyliusBankPaymentPlugin\Model\Transaction
+                interface: PhpMob\SyliusBankPaymentPlugin\Model\TransactionInterface
+                form: PhpMob\SyliusBankPaymentPlugin\Form\Type\TransactionType

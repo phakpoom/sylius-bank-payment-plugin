@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping"
+                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                  xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+
+    <mapped-superclass name="PhpMob\SyliusBankPaymentPlugin\Model\BankLogo" table="phpmob_bank_payment_bank_logo">
+        <one-to-one field="owner" target-entity="PhpMob\SyliusBankPaymentPlugin\Model\BankInterface" inversed-by="logo">
+            <join-column name="owner_id" referenced-column-name="id" nullable="false" on-delete="CASCADE"/>
+        </one-to-one>
+    </mapped-superclass>
+</doctrine-mapping>

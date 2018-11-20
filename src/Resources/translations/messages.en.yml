@@ -1,0 +1,27 @@
+phpmob:
+    menu:
+        bank_payment: Bank Payment
+        bank_payment_banks: Banks
+        bank_payment_accounts: Accounts
+        bank_payment_transactions: Transactions
+    form:
+        account:
+            name: Name
+            branch: Branch
+            address: Address
+            note: Note
+            number: Number
+            bank: Bank
+            translations: Translations
+        bank:
+            name: Name
+            logo: Logo
+            translations: Translations
+        transaction:
+            order_number: Order Number
+            transferred_at: Transferred at
+            transaction_code: Transaction code
+            amount: Amount
+            note: Note
+            account: Account
+            slip: Slip

@@ -1,0 +1,12 @@
+parameters:
+    phpmob_sylius_bank_payment_plugin.uploader.filesystem: phpmob_sylius_bank_payment_plugin_media
+
+knp_gaufrette:
+    adapters:
+        phpmob_sylius_bank_payment_plugin_media:
+            local:
+                directory: "%kernel.project_dir%/web"
+                create: true
+    filesystems:
+        phpmob_sylius_bank_payment_plugin_media:
+            adapter: "%phpmob_sylius_bank_payment_plugin.uploader.filesystem%"

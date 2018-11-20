@@ -1,0 +1,24 @@
+sylius_grid:
+    grids:
+        grid_admin_phpmob_transaction:
+            driver:
+                name: doctrine/orm
+                options:
+                    class: "%phpmob.model.transaction.class%"
+            sorting:
+                createdAt: desc
+            fields:
+                orderNumber:
+                    type: string
+                    label: Order Number
+                    sortable: ~
+                amount:
+                    type: string
+                    label: Amount
+                createdAt:
+                    type: datetime
+                    label: Created At
+            actions:
+                main:
+                    create:
+                        type: create

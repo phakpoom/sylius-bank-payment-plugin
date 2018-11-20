@@ -1,13 +1,1 @@
 # Delete these routes and define your own shop routes here
-
-phpmob_sylius_bank_payment_static_welcome:
-    path: /static-welcome/{name}
-    defaults:
-        _controller: PhpMobSyliusBankPaymentPlugin:Greeting:staticallyGreet
-        name: ~
-
-phpmob_sylius_bank_payment_dynamic_welcome:
-    path: /dynamic-welcome/{name}
-    defaults:
-        _controller: PhpMobSyliusBankPaymentPlugin:Greeting:dynamicallyGreet
-        name: ~

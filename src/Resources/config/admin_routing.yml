@@ -1,1 +1,11 @@
-# Define your own admin routes here
+phpmob_accounts:
+    prefix: /accounts
+    resource: routing/admin/account.yml
+
+phpmob_banks:
+    prefix: /banks
+    resource: routing/admin/bank.yml
+
+phpmob_transactions:
+    prefix: /transactions
+    resource: routing/admin/transaction.yml

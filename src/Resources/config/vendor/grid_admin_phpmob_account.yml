@@ -1,0 +1,22 @@
+sylius_grid:
+    grids:
+        grid_admin_phpmob_account:
+            driver:
+                name: doctrine/orm
+                options:
+                    class: "%phpmob.model.account.class%"
+            sorting:
+                number: asc
+            fields:
+                number:
+                    type: string
+                    label: Number
+                    sortable: ~
+                main:
+                    create:
+                        type: create
+                item:
+                    update:
+                        type: update
+                    delete:
+                        type: delete
