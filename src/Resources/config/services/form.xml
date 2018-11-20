@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+    <parameters>
+        <parameter type="collection" id="phpmob.validation_group.account_translation">
+            <parameter>phpmob</parameter>
+        </parameter>
+        <parameter type="collection" id="phpmob.validation_group.account">
+            <parameter>phpmob</parameter>
+        </parameter>
+        <parameter type="collection" id="phpmob.validation_group.bank_logo">
+            <parameter>phpmob</parameter>
+        </parameter>
+        <parameter type="collection" id="phpmob.validation_group.bank_translation">
+            <parameter>phpmob</parameter>
+        </parameter>
+        <parameter type="collection" id="phpmob.validation_group.bank">
+            <parameter>phpmob</parameter>
+        </parameter>
+        <parameter type="collection" id="phpmob.validation_group.slip">
+            <parameter>phpmob</parameter>
+        </parameter>
+        <parameter type="collection" id="phpmob.validation_group.transaction">
+            <parameter>phpmob</parameter>
+        </parameter>
+    </parameters>
+    <services>
+        <service id="phpmob.form.account_choice" class="PhpMob\SyliusBankPaymentPlugin\Form\Type\AccountChoiceType">
+            <tag name="form.type"/>
+            <argument type="service" id="phpmob.repository.account"/>
+        </service>
+        <service id="phpmob.form.account_translation" class="PhpMob\SyliusBankPaymentPlugin\Form\Type\AccountTranslationType">
+            <tag name="form.type"/>
+            <argument>%phpmob.model.account_translation.class%</argument>
+            <argument>%phpmob.validation_group.account_translation%</argument>
+        </service>
+        <service id="phpmob.form.account" class="PhpMob\SyliusBankPaymentPlugin\Form\Type\AccountType">
+            <tag name="form.type"/>
+            <argument>%phpmob.model.account.class%</argument>
+            <argument>%phpmob.validation_group.account%</argument>
+        </service>
+        <service id="phpmob.form.bank_choice" class="PhpMob\SyliusBankPaymentPlugin\Form\Type\BankChoiceType">
+            <tag name="form.type"/>
+            <argument type="service" id="phpmob.repository.bank"/>
+        </service>
+        <service id="phpmob.form.bank_logo" class="PhpMob\SyliusBankPaymentPlugin\Form\Type\BankLogoType">
+            <tag name="form.type"/>
+            <argument>%phpmob.model.bank_logo.class%</argument>
+            <argument>%phpmob.validation_group.bank_logo%</argument>
+        </service>
+        <service id="phpmob.form.bank_translation" class="PhpMob\SyliusBankPaymentPlugin\Form\Type\BankTranslationType">
+            <tag name="form.type"/>
+            <argument>%phpmob.model.bank_translation.class%</argument>
+            <argument>%phpmob.validation_group.bank_translation%</argument>
+        </service>
+        <service id="phpmob.form.bank" class="PhpMob\SyliusBankPaymentPlugin\Form\Type\BankType">
+            <tag name="form.type"/>
+            <argument>%phpmob.model.bank.class%</argument>
+            <argument>%phpmob.validation_group.bank%</argument>
+        </service>
+        <service id="phpmob.form.slip" class="PhpMob\SyliusBankPaymentPlugin\Form\Type\SlipType">
+            <tag name="form.type"/>
+            <argument>%phpmob.model.slip.class%</argument>
+            <argument>%phpmob.validation_group.slip%</argument>
+        </service>
+        <service id="phpmob.form.transaction" class="PhpMob\SyliusBankPaymentPlugin\Form\Type\TransactionType">
+            <tag name="form.type"/>
+            <argument>%phpmob.model.transaction.class%</argument>
+            <argument>%phpmob.validation_group.transaction%</argument>
+        </service>
+    </services>
+</container>

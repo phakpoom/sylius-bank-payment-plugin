@@ -1,4 +1,8 @@
 phpmob:
+    ui:
+        banks: Banks
+        accounts: Accounts
+        transactions: Transactions
     menu:
         bank_payment: Bank Payment
         bank_payment_banks: Banks
