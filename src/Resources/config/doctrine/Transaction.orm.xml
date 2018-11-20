@@ -21,9 +21,13 @@
         <field name="note" type="string" nullable="true"/>
         <field name="amount" type="integer" nullable="false"/>
 
-        <one-to-one field="slip" target-entity="PhpMob\SyliusBankPaymentPlugin\Model\SlipInterface" mapped-by="owner"/>
         <many-to-one field="account" target-entity="PhpMob\SyliusBankPaymentPlugin\Model\AccountInterface"/>
         <many-to-one field="payment" target-entity="Sylius\Component\Payment\Model\PaymentInterface"/>
         <many-to-one field="user" target-entity="Sylius\Component\Core\Model\ShopUserInterface"/>
+        <one-to-one field="slip" target-entity="PhpMob\SyliusBankPaymentPlugin\Model\SlipInterface" mapped-by="owner">
+            <cascade>
+                <cascade-all/>
+            </cascade>
+        </one-to-one>
     </mapped-superclass>
 </doctrine-mapping>

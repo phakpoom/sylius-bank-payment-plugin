@@ -20,7 +20,11 @@
             <gedmo:timestampable on="update"/>
         </field>
 
-        <one-to-one field="logo" target-entity="PhpMob\SyliusBankPaymentPlugin\Model\BankLogoInterface" mapped-by="owner"/>
         <one-to-many field="accounts" target-entity="PhpMob\SyliusBankPaymentPlugin\Model\AccountInterface" mapped-by="bank"/>
+        <one-to-one field="logo" target-entity="PhpMob\SyliusBankPaymentPlugin\Model\BankLogoInterface" mapped-by="owner">
+            <cascade>
+                <cascade-all/>
+            </cascade>
+        </one-to-one>
     </mapped-superclass>
 </doctrine-mapping>
