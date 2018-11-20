@@ -12,6 +12,7 @@ sylius_grid:
                     type: string
                     label: Number
                     sortable: ~
+            actions:
                 main:
                     create:
                         type: create
