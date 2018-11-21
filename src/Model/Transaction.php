@@ -131,7 +131,7 @@ class Transaction implements TransactionInterface
     /**
      * {@inheritdoc}
      */
-    public function getOrderNumber(): string
+    public function getOrderNumber(): ?string
     {
         return $this->orderNumber;
     }
@@ -139,7 +139,7 @@ class Transaction implements TransactionInterface
     /**
      * {@inheritdoc}
      */
-    public function setOrderNumber(string $orderNumber): void
+    public function setOrderNumber(?string $orderNumber): void
     {
         $this->orderNumber = $orderNumber;
     }

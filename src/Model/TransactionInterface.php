@@ -54,12 +54,12 @@ interface TransactionInterface extends
     /**
      * @return string
      */
-    public function getOrderNumber(): string;
+    public function getOrderNumber(): ?string;
 
     /**
      * @param string $orderNumber
      */
-    public function setOrderNumber(string $orderNumber): void;
+    public function setOrderNumber(?string $orderNumber): void;
 
     /**
      * @return \DateTime
