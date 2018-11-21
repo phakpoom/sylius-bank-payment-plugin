@@ -1,2 +1,2 @@
-<strong>Number</strong>: {{ data.orderNumber }}<br>
+<strong>Number</strong>: <a href="{{ path('sylius_admin_order_show', { id: data.payment.order.id }) }}">{{ data.orderNumber }}</a><br>
 <strong>Ordered</strong>: {{ data.payment.order.checkoutCompletedAt|localizeddate }}<br>
