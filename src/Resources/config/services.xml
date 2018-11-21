@@ -11,6 +11,7 @@
         </service>
         <service id="phpmob.validator.order_number_exists" class="PhpMob\SyliusBankPaymentPlugin\Validator\Constraints\OrderNumberExistsValidator">
             <tag name="validator.constraint_validator" alias="order_number_exists"/>
+            <argument type="service" id="sylius.repository.order"/>
         </service>
         <service id="phpmob.listener.images_upload" class="PhpMob\SyliusBankPaymentPlugin\EventListener\ImageUploadListener">
             <argument type="service" id="sylius.image_uploader" />
