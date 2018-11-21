@@ -17,7 +17,7 @@ abstract class AbstractImageType extends ImageType
     {
         $builder
             ->add('file', FileType::class, [
-                'label' => 'sylius.form.image.file',
+                'label' => false,
             ])
         ;
     }
