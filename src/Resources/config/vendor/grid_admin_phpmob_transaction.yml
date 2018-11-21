@@ -10,7 +10,7 @@ sylius_grid:
             fields:
                 orderNumber:
                     type: twig
-                    label: Order Number
+                    label: Order
                     sortable: orderNumber
                     path: .
                     options:
