@@ -9,18 +9,26 @@ sylius_grid:
                 createdAt: desc
             fields:
                 orderNumber:
-                    type: string
+                    type: twig
                     label: Order Number
-                    sortable: ~
+                    sortable: orderNumber
+                    path: .
+                    options:
+                        template: '@PhpMobSyliusBankPaymentPlugin/Admin/Transaction/Grid/Field/order.html.twig'
                 amount:
-                    type: string
+                    type: twig
                     label: Amount
-                transferredAt:
-                    type: datetime
-                    label: Transferred At
+                    sortable: amount
+                    path: .
+                    options:
+                        template: '@PhpMobSyliusBankPaymentPlugin/Admin/Transaction/Grid/Field/amount.html.twig'
                 createdAt:
-                    type: datetime
-                    label: Created At
+                    type: twig
+                    label: Date
+                    sortable: createdAt
+                    path: .
+                    options:
+                        template: '@PhpMobSyliusBankPaymentPlugin/Admin/Transaction/Grid/Field/date.html.twig'
             filters:
                 search:
                     type: string
@@ -29,12 +37,12 @@ sylius_grid:
                         fields: [orderNumber]
                 transferred:
                     type: date
-                    label: Date
+                    label: Transferred Date
                     options:
                         fields: [transferredAt]
                 created:
                     type: date
-                    label: Date
+                    label: Created Date
                     options:
                         fields: [createdAt]
             actions:

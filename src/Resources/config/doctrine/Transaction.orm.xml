@@ -2,6 +2,7 @@
 
 <doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping"
                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                  xmlns:gedmo="http://gediminasm.org/schemas/orm/doctrine-extensions-mapping"
                   xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
     <mapped-superclass name="PhpMob\SyliusBankPaymentPlugin\Model\Transaction" table="phpmob_bank_payment_transaction">
         <indexes>
@@ -20,6 +21,14 @@
         <field name="transactionCode" type="string" nullable="true"/>
         <field name="note" type="string" nullable="true"/>
         <field name="amount" type="integer" nullable="false"/>
+
+        <field name="createdAt" type="datetime">
+            <gedmo:timestampable on="create"/>
+        </field>
+
+        <field name="updatedAt" type="datetime" nullable="true">
+            <gedmo:timestampable on="update"/>
+        </field>
 
         <many-to-one field="account" target-entity="PhpMob\SyliusBankPaymentPlugin\Model\AccountInterface"/>
         <many-to-one field="payment" target-entity="Sylius\Component\Payment\Model\PaymentInterface"/>
