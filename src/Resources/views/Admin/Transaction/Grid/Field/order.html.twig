@@ -1,2 +1,4 @@
-<strong>Number</strong>: <a href="{{ path('sylius_admin_order_show', { id: data.payment.order.id }) }}">{{ data.orderNumber }}</a><br>
-<strong>Ordered</strong>: {{ data.payment.order.checkoutCompletedAt|localizeddate }}<br>
+{% set order = data.payment.order %}
+<strong>Number</strong>: <a href="{{ path('sylius_admin_order_show', { id: order.id }) }}">{{ data.orderNumber }}</a><br>
+<strong>Ordered</strong>: {{ order.checkoutCompletedAt|localizeddate }}<br>
+<strong>Total Price</strong>: {{ order.total|sylius_format_money(order.currencyCode, sylius.localeCode) }}<br>

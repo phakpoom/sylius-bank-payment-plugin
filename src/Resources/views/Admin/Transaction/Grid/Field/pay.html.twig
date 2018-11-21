@@ -1,0 +1,6 @@
+{% set payment = data.payment %}
+{% set order = payment.order %}
+<strong>Payment</strong>: {{ data.amount|sylius_format_money(payment.currencyCode, sylius.localeCode) }}<br>
+<strong>Note</strong>: {{ data.note|default('~') }}<br>
+<strong>Transaction Code</strong>: {{ data.transactionCode|default('~') }}<br>
+<strong>State</strong>: {{ data.state }}<br>
