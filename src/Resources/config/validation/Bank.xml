@@ -23,5 +23,10 @@
                 <option name="groups">phpmob</option>
             </constraint>
         </property>
+        <property name="logo">
+            <constraint name="Valid">
+                <option name="groups">phpmob</option>
+            </constraint>
+        </property>
     </class>
 </constraint-mapping>

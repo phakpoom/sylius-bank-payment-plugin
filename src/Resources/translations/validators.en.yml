@@ -21,6 +21,7 @@ phpmob:
             upload_ini_size: Bank's logo size over than your system limit.
     slip:
         file:
+            not_blank: Slip image should not be blank.
             max_size: Slip image size should not greater than 10MB.
             upload_ini_size: Slip image size over than system limit.
     transaction:
@@ -32,5 +33,3 @@ phpmob:
         amount:
             not_blank: Amount should not be blank.
             greater_than: Amount should be greater than 0.
-        slip:
-            not_blank: Slip image should not be blank.
