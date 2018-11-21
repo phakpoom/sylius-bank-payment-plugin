@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMob\SyliusBankPaymentPlugin\Model;
 
+use Sylius\Component\Core\Model\AdminUserInterface;
 use Sylius\Component\Core\Model\PaymentInterface as BasePaymentInterface;
 use Sylius\Component\Resource\Model\ResourceInterface;
 use Sylius\Component\Resource\Model\TimestampableInterface;
@@ -110,4 +111,14 @@ interface TransactionInterface extends
      * @param AccountInterface $account
      */
     public function setAccount(?AccountInterface $account): void;
+
+    /**
+     * @param null|AdminUserInterface $user
+     */
+    public function setEndorser(?AdminUserInterface $user): void;
+
+    /**
+     * @return null|AdminUserInterface
+     */
+    public function getEndorser(): ?AdminUserInterface;
 }
