@@ -101,7 +101,7 @@ class Transaction implements TransactionInterface
     /**
      * {@inheritdoc}
      */
-    public function getPayment(): BasePaymentInterface
+    public function getPayment(): ?BasePaymentInterface
     {
         return $this->payment;
     }
@@ -109,7 +109,7 @@ class Transaction implements TransactionInterface
     /**
      * {@inheritdoc}
      */
-    public function setPayment(BasePaymentInterface $payment): void
+    public function setPayment(?BasePaymentInterface $payment): void
     {
         $this->payment = $payment;
     }

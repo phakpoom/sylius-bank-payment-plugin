@@ -35,12 +35,12 @@ interface TransactionInterface extends
     /**
      * @return BasePaymentInterface
      */
-    public function getPayment(): BasePaymentInterface;
+    public function getPayment(): ?BasePaymentInterface;
 
     /**
      * @param BasePaymentInterface $payment
      */
-    public function setPayment(BasePaymentInterface $payment): void;
+    public function setPayment(?BasePaymentInterface $payment): void;
 
     /**
      * @return SlipInterface
