@@ -121,4 +121,14 @@ interface TransactionInterface extends
      * @return null|AdminUserInterface
      */
     public function getEndorser(): ?AdminUserInterface;
+
+    /**
+     * @return null|string
+     */
+    public function getRejectReason(): ?string;
+
+    /**
+     * @param null|string $rejectReason
+     */
+    public function setRejectReason(?string $rejectReason): void;
 }

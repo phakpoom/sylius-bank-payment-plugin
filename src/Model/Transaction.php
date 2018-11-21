@@ -75,6 +75,11 @@ class Transaction implements TransactionInterface
     private $endorser;
 
     /**
+     * @var null|string
+     */
+    private $rejectReason;
+
+    /**
      * {@inheritdoc}
      */
     public function getId(): ?int
@@ -276,5 +281,21 @@ class Transaction implements TransactionInterface
     public function setEndorser(?AdminUserInterface $endorser): void
     {
         $this->endorser = $endorser;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getRejectReason(): ?string
+    {
+        return $this->rejectReason;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function setRejectReason(?string $rejectReason): void
+    {
+        $this->rejectReason = $rejectReason;
     }
 }
