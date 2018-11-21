@@ -15,9 +15,28 @@ sylius_grid:
                 amount:
                     type: string
                     label: Amount
+                transferredAt:
+                    type: datetime
+                    label: Transferred At
                 createdAt:
                     type: datetime
                     label: Created At
+            filters:
+                search:
+                    type: string
+                    label: sylius.ui.search
+                    options:
+                        fields: [orderNumber]
+                transferred:
+                    type: date
+                    label: Date
+                    options:
+                        fields: [transferredAt]
+                created:
+                    type: date
+                    label: Date
+                    options:
+                        fields: [createdAt]
             actions:
                 main:
                     create:
