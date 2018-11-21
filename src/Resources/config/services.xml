@@ -10,7 +10,7 @@
             <tag name="kernel.event_listener" event="sylius.menu.admin.main" method="buildMenu"/>
         </service>
         <service id="phpmob.validator.order_number_exists" class="PhpMob\SyliusBankPaymentPlugin\Validator\Constraints\OrderNumberExistsValidator">
-            <tag name="validator" alias="phpmob.validator.order_number_exists"/>
+            <tag name="validator.constraint_validator" alias="order_number_exists"/>
         </service>
         <service id="phpmob.listener.images_upload" class="PhpMob\SyliusBankPaymentPlugin\EventListener\ImageUploadListener">
             <argument type="service" id="sylius.image_uploader" />

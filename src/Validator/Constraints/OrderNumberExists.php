@@ -15,6 +15,6 @@ class OrderNumberExists extends Constraint
      */
     public function validatedBy()
     {
-        return 'phpmob.validator.order_number_exists';
+        return 'order_number_exists';
     }
 }

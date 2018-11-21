@@ -25,6 +25,7 @@ class TransactionType extends AbstractResourceType
             ])
             ->add('transferredAt', DateTimeType::class, [
                 'required' => true,
+                'widget' => 'single_text',
                 'label' => 'phpmob.form.transaction.transferred_at',
             ])
             ->add('transactionCode', TextType::class, [
@@ -36,7 +37,7 @@ class TransactionType extends AbstractResourceType
                 'label' => 'phpmob.form.transaction.amount',
             ])
             ->add('note', TextareaType::class, [
-                'required' => true,
+                'required' => false,
                 'label' => 'phpmob.form.transaction.note',
             ])
             ->add('account', AccountChoiceType::class, [
