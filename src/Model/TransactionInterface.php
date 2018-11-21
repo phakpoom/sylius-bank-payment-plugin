@@ -16,7 +16,6 @@ interface TransactionInterface extends
     UserAwareInterface,
     ImageAwareInterface
 {
-    const STATE_DRAFT = 'draft';
     const STATE_NEW = 'new';
     const STATE_APPROVED = 'approved';
     const STATE_REJECTED = 'rejected';

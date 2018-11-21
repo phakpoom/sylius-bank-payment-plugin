@@ -22,7 +22,7 @@ class Transaction implements TransactionInterface
     /**
      * @var string
      */
-    private $state = self::STATE_DRAFT;
+    private $state = self::STATE_NEW;
 
     /**
      * @var null|string
