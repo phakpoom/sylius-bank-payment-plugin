@@ -36,7 +36,7 @@ class Transaction implements TransactionInterface
     /**
      * @var int
      */
-    private $amount;
+    private $amount = 0;
 
     /**
      * @var null|string
@@ -165,13 +165,13 @@ class Transaction implements TransactionInterface
      */
     public function getAmount(): int
     {
-        return $this->amount;
+        return intval($this->amount);
     }
 
     /**
      * {@inheritdoc}
      */
-    public function setAmount(int $amount): void
+    public function setAmount(int $amount = 0): void
     {
         $this->amount = $amount;
     }
