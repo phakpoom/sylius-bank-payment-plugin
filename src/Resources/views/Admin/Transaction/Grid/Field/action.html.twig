@@ -1,5 +1,5 @@
-<div class="ui buttons" data-phpmob-action="{{ path('phpmob_admin_transaction_approve', { id: data.id, type: ':type' }) }}">
-    <button class="ui positive button">{{ 'Approve' }}</button>
+<div class="ui disabled buttons" data-phpmob-action="{{ path('phpmob_admin_transaction_approve', { id: data.id, type: ':type' }) }}">
+    <button class="ui positive button" data-transition="approved">{{ 'Approve' }}</button>
     {#<div class="or"></div>#}
-    <button class="ui negative button">{{ 'Reject' }}</button>
+    <button class="ui negative button" data-transition="rejected">{{ 'Reject' }}</button>
 </div>
