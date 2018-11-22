@@ -29,13 +29,6 @@ sylius_grid:
                     path: .
                     options:
                         template: '@PhpMobSyliusBankPaymentPlugin/Admin/Transaction/Grid/Field/date.html.twig'
-                user:
-                    type: twig
-                    label: User
-                    sortable: false
-                    path: .
-                    options:
-                        template: '@PhpMobSyliusBankPaymentPlugin/Admin/Transaction/Grid/Field/user.html.twig'
                 action:
                     type: twig
                     label: Action

@@ -17,7 +17,11 @@ winzou_state_machine:
                 to: rejected
         callbacks:
             before:
-                phpmob_apply_comment:
-                    on: "create"
+                phpmob_apply_comment_on_approve:
+                    on: "approve"
+                    do: ["@phpmob.transaction_apply_comment", "apply"]
+                    args: ["object"]
+                phpmob_apply_comment_on_reject:
+                    on: "reject"
                     do: ["@phpmob.transaction_apply_comment", "apply"]
                     args: ["object"]
