@@ -124,10 +124,10 @@ interface TransactionInterface extends
     /**
      * @return null|string
      */
-    public function getRejectReason(): ?string;
+    public function getComment(): ?string;
 
     /**
-     * @param null|string $rejectReason
+     * @param null|string $comment
      */
-    public function setRejectReason(?string $rejectReason): void;
+    public function setComment(?string $comment): void;
 }

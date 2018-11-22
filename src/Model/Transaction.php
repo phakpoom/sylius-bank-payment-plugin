@@ -77,7 +77,7 @@ class Transaction implements TransactionInterface
     /**
      * @var null|string
      */
-    private $rejectReason;
+    private $comment;
 
     /**
      * {@inheritdoc}
@@ -286,16 +286,16 @@ class Transaction implements TransactionInterface
     /**
      * {@inheritdoc}
      */
-    public function getRejectReason(): ?string
+    public function getComment(): ?string
     {
-        return $this->rejectReason;
+        return $this->comment;
     }
 
     /**
      * {@inheritdoc}
      */
-    public function setRejectReason(?string $rejectReason): void
+    public function setComment(?string $comment): void
     {
-        $this->rejectReason = $rejectReason;
+        $this->comment = $comment;
     }
 }
