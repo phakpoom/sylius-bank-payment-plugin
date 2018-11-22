@@ -1,2 +1,2 @@
-<strong>Payer</strong>: {{ user ? (user.customer.firstName ~ " " ~ user.customer.lastName) : '' }}<br>
-<strong>Endorser</strong>: {{ endorser ? (endorser.username) : '' }}<br>
+<strong>{{ 'Customer' }}</strong>: {{ data.user ? (data.user.customer.firstName ~ " " ~ data.user.customer.lastName) : '' }}<br>
+<strong>{{ 'Endorser' }}</strong>: {{ data.endorser ? (data.endorser.username) : '' }}<br>
