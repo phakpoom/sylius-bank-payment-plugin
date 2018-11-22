@@ -29,5 +29,9 @@
             <tag name="kernel.event_listener" event="sonata.block.event.sylius.admin.layout.javascripts" method="onBlockEvent" />
             <argument>@PhpMobSyliusBankPaymentPlugin/Admin/javascript.html.twig</argument>
         </service>
+        <service id="phpmob.transaction_apply_comment" class="PhpMob\SyliusBankPaymentPlugin\StateCallback\TransactionEndorse" public="true">
+            <argument type="service" id="security.token_storage"/>
+            <argument type="service" id="request_stack"/>
+        </service>
     </services>
 </container>

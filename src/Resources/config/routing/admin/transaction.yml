@@ -15,13 +15,14 @@ phpmob_sylius_bank_payment_plugin_admin_transaction:
 
 phpmob_admin_transaction_approve:
     path: /{id}/{type}/{comment}
-    methods: [PUT]
+    methods: [GET]
     defaults:
         comment: ''
-        _controller: phpmob.controller.transaction::applyStateMachineTransitionAction
+        _controller: phpmob.controller.transaction:applyStateMachineTransitionAction
         _sylius:
             event: approve
             permission: true
+            csrf_protection: false
             redirect: referer
             state_machine:
                 graph: phpmob_transaction

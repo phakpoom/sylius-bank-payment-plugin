@@ -16,7 +16,7 @@ $(function () {
 
         $el.find('button').addClass('disabled');
         $.ajax({
-            type: 'PUT',
+            type: 'GET',
             url: url,
             complete: function () {
                 $el.find('button').removeClass('disabled');

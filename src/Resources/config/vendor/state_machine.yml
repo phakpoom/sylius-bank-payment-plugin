@@ -1,0 +1,23 @@
+winzou_state_machine:
+    phpmob_transaction:
+        class: "%phpmob.model.transaction.class%"
+        property_path: state
+        graph: phpmob_transaction
+        state_machine_class: "%sylius.state_machine.class%"
+        states:
+            new: ~
+            approved: ~
+            rejected: ~
+        transitions:
+            approve:
+                from: [new]
+                to: approved
+            reject:
+                from: [new]
+                to: rejected
+        callbacks:
+            before:
+                phpmob_apply_comment:
+                    on: "create"
+                    do: ["@phpmob.transaction_apply_comment", "apply"]
+                    args: ["object"]
