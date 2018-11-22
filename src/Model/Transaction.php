@@ -75,6 +75,11 @@ class Transaction implements TransactionInterface
     private $endorser;
 
     /**
+     * @var null|\DateTime
+     */
+    private $endorsedAt;
+
+    /**
      * @var null|string
      */
     private $comment;
@@ -281,6 +286,22 @@ class Transaction implements TransactionInterface
     public function setEndorser(?AdminUserInterface $endorser): void
     {
         $this->endorser = $endorser;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getEndorsedAt(): ?\DateTime
+    {
+        return $this->endorsedAt;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function setEndorsedAt(?\DateTime $endorsedAt): void
+    {
+        $this->endorsedAt = $endorsedAt;
     }
 
     /**

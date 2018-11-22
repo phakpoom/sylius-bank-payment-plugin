@@ -122,6 +122,16 @@ interface TransactionInterface extends
     public function getEndorser(): ?AdminUserInterface;
 
     /**
+     * @return \DateTime|null
+     */
+    public function getEndorsedAt(): ?\DateTime;
+
+    /**
+     * @param \DateTime|null $endorsedAt
+     */
+    public function setEndorsedAt(?\DateTime $endorsedAt): void;
+
+    /**
      * @return null|string
      */
     public function getComment(): ?string;

@@ -12,3 +12,17 @@ phpmob_sylius_bank_payment_plugin_admin_transaction:
             all:
                 templates:
                     form: "@PhpMobSyliusBankPaymentPlugin/Admin/Transaction/_form.html.twig"
+
+phpmob_admin_transaction_approve:
+    path: /{id}/{type}/{comment}
+    methods: [PUT]
+    defaults:
+        comment: ''
+        _controller: phpmob.controller.transaction::applyStateMachineTransitionAction
+        _sylius:
+            event: approve
+            permission: true
+            redirect: referer
+            state_machine:
+                graph: phpmob_transaction
+                transition: $type

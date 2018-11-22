@@ -6,7 +6,7 @@ sylius_grid:
                 options:
                     class: "%phpmob.model.transaction.class%"
             sorting:
-                createdAt: desc
+                date: desc
             fields:
                 orderNumber:
                     type: twig
@@ -22,13 +22,27 @@ sylius_grid:
                     path: .
                     options:
                         template: '@PhpMobSyliusBankPaymentPlugin/Admin/Transaction/Grid/Field/pay.html.twig'
-                createdAt:
+                date:
                     type: twig
                     label: Date
                     sortable: createdAt
                     path: .
                     options:
                         template: '@PhpMobSyliusBankPaymentPlugin/Admin/Transaction/Grid/Field/date.html.twig'
+                user:
+                    type: twig
+                    label: User
+                    sortable: false
+                    path: .
+                    options:
+                        template: '@PhpMobSyliusBankPaymentPlugin/Admin/Transaction/Grid/Field/user.html.twig'
+                action:
+                    type: twig
+                    label: Action
+                    sortable: false
+                    path: .
+                    options:
+                        template: '@PhpMobSyliusBankPaymentPlugin/Admin/Transaction/Grid/Field/action.html.twig'
             filters:
                 search:
                     type: string
