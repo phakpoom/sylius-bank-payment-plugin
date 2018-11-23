@@ -33,5 +33,8 @@
             <argument type="service" id="security.token_storage"/>
             <argument type="service" id="request_stack"/>
         </service>
+        <service id="phpmob.transaction_process_payment_state" class="PhpMob\SyliusBankPaymentPlugin\StateCallback\ProcessPaymentState" public="true">
+            <argument type="service" id="sm.factory"/>
+        </service>
     </services>
 </container>
