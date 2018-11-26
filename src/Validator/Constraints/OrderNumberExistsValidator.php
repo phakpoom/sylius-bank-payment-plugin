@@ -31,7 +31,8 @@ class OrderNumberExistsValidator extends ConstraintValidator
             return;
         }
 
-        // TODO: should check some thing eg. state?
+        // TODO: 1. should check some thing eg. state?
+        // TODO: 2. should check matched user?
         if (!$this->repository->findOneByNumber($value)) {
             $this->context->addViolation($constraint->message, [
                 '{{ value }}' => $value,
