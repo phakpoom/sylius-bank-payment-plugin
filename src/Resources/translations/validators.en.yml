@@ -33,3 +33,7 @@ phpmob:
         amount:
             not_blank: Amount should not be blank.
             greater_than: Amount should be greater than 0.
+        slip:
+            not_blank: Please submit your payment's slip.
+        account:
+            not_blank: Please choose which bank account you was paid.

@@ -30,7 +30,17 @@
             </constraint>
         </property>
         <property name="slip">
+            <constraint name="NotBlank">
+                <option name="message">phpmob.transaction.slip.not_blank</option>
+                <option name="groups">phpmob</option>
+            </constraint>
             <constraint name="Valid">
+                <option name="groups">phpmob</option>
+            </constraint>
+        </property>
+        <property name="account">
+            <constraint name="NotBlank">
+                <option name="message">phpmob.transaction.account.not_blank</option>
                 <option name="groups">phpmob</option>
             </constraint>
         </property>
