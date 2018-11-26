@@ -14,7 +14,7 @@ phpmob_sylius_bank_payment_plugin_admin_transaction:
                     form: "@PhpMobSyliusBankPaymentPlugin/Admin/Transaction/_form.html.twig"
 
 phpmob_admin_transaction_approve:
-    path: /{id}/{type}/{comment}
+    path: /transactions/{id}/{type}/{comment}
     methods: [GET]
     defaults:
         comment: ''
