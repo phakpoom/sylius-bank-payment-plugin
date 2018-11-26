@@ -25,7 +25,7 @@ class OrderNumberExistsValidator extends ConstraintValidator
      */
     public function validate($value, Constraint $constraint)
     {
-        $value = trim($value);
+        $value = \trim(\strval($value));
 
         if (empty($value)) {
             return;
