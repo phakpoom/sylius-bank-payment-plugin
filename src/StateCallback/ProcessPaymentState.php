@@ -22,6 +22,8 @@ class ProcessPaymentState
 
     /**
      * @param TransactionInterface $transaction
+     *
+     * @throws \SM\SMException
      */
     public function process(TransactionInterface $transaction): void
     {
