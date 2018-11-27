@@ -78,9 +78,9 @@ final class ApplyPaymentListener
         foreach ($order->getPayments() as $payment) {
             if (PaymentInterface::STATE_NEW === $payment->getState()
                 && $payment->getMethod()
-                && $payment->getMethod()->getCode() === MyConstants::METHOD_NAME) {
+                && MyConstants::METHOD_NAME === $payment->getMethod()->getCode()) {
                 $payment->setAmount($subject->getAmount());
-                $payment->setAmount($order->getCurrencyCode());
+                $payment->setCurrencyCode($order->getCurrencyCode());
 
                 break;
             }
@@ -107,13 +107,13 @@ final class ApplyPaymentListener
     private function getUser(): ?UserInterface
     {
         if (!$token = $this->tokenStorage->getToken()) {
-            return;
+            return null;
         }
 
         $user = $token->getUser();
 
         if (!$user instanceof UserInterface) {
-            return;
+            return null;
         }
 
         return $user;

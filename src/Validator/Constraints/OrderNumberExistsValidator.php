@@ -58,13 +58,13 @@ class OrderNumberExistsValidator extends ConstraintValidator
     private function getUser(): ?UserInterface
     {
         if (!$token = $this->tokenStorage->getToken()) {
-            return;
+            return null;
         }
 
         $user = $token->getUser();
 
         if (!$user instanceof UserInterface) {
-            return;
+            return null;
         }
 
         return $user;
