@@ -23,6 +23,6 @@ winzou_state_machine:
                     args: ["object"]
             after:
                 phpmob_process_payment_state:
-                    on: ["approve"]
+                    on: ["approve", "reject"]
                     do: ["@phpmob.transaction_process_payment_state", "process"]
                     args: ["object"]

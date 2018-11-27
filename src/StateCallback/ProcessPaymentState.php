@@ -31,8 +31,15 @@ class ProcessPaymentState
             return;
         }
 
-        $this->smFactory
-            ->get($payment, PaymentTransitions::GRAPH)
-            ->apply(PaymentTransitions::TRANSITION_COMPLETE, true);
+        if (TransactionInterface::STATE_REJECTED === $transaction->getState()) {
+            $this->smFactory
+                ->get($payment, PaymentTransitions::GRAPH)
+                ->apply(PaymentTransitions::TRANSITION_CANCEL, true);
+
+        } else {
+            $this->smFactory
+                ->get($payment, PaymentTransitions::GRAPH)
+                ->apply(PaymentTransitions::TRANSITION_COMPLETE, true);
+        }
     }
 }
