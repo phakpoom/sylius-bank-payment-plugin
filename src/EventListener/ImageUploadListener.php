@@ -31,7 +31,9 @@ final class ImageUploadListener
 
     private function uploadSubjectImage(ImageAwareInterface $subject): void
     {
-        $image = $subject->getImage();
+        if (!$image = $subject->getImage()) {
+            return;
+        }
 
         if ($image->hasFile()) {
             $this->uploader->upload($image);

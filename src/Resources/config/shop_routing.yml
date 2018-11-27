@@ -10,9 +10,9 @@
 #            factory:
 #                method: createNewUserPayment
 #                arguments:
-#                    user: "expr:service('sylius.context.customer').getUser()"
+#                    user: "expr:service('sylius.context.customer').getCustomer().getUser()"
 #                    payment: "expr:service('sylius.repository.payment').find($paymentId)"
 #            redirect:
 #                route: sylius_shop_order_show
 #                parameters:
-#                    tokenValue: resource.order.tokenValue
+#                    tokenValue: resource.payment.order.tokenValue

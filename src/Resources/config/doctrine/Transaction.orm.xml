@@ -33,9 +33,13 @@
         </field>
 
         <many-to-one field="account" target-entity="PhpMob\SyliusBankPaymentPlugin\Model\AccountInterface"/>
-        <many-to-one field="payment" target-entity="Sylius\Component\Payment\Model\PaymentInterface"/>
         <many-to-one field="user" target-entity="Sylius\Component\Core\Model\ShopUserInterface"/>
         <many-to-one field="endorser" target-entity="Sylius\Component\Core\Model\AdminUserInterface"/>
+        <many-to-one field="payment" target-entity="Sylius\Component\Payment\Model\PaymentInterface">
+            <cascade>
+                <cascade-all/>
+            </cascade>
+        </many-to-one>
         <one-to-one field="slip" target-entity="PhpMob\SyliusBankPaymentPlugin\Model\SlipInterface" mapped-by="owner">
             <cascade>
                 <cascade-all/>
