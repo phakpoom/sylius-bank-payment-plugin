@@ -35,9 +35,11 @@ class TransactionFactory implements TransactionFactoryInterface
     {
         $transaction = $this->createNew();
         $transaction->setUser($user);
-        $transaction->setPayment($payment);
 
-        $payment->setAmount($transaction->getAmount());
+        if ($payment) {
+            $transaction->setPayment($payment);
+            $payment->setAmount($transaction->getAmount());
+        }
 
         return $transaction;
     }

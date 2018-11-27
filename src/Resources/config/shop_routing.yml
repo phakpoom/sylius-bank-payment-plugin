@@ -2,7 +2,7 @@
 #    path: /payment-submit/{paymentId}
 #    methods: [GET, POST]
 #    defaults:
-#        paymentId: ~
+#        paymentId: 0
 #        _controller: phpmob.controller.transaction:createAction
 #        _sylius:
 #            template: "@SyliusShop/Account/paymentSubmit.html.twig"
