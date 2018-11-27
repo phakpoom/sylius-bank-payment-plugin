@@ -109,7 +109,10 @@ final class ApplyPaymentListener
         $payment->setAmount($transaction->getAmount());
         $payment->setCurrencyCode($order->getCurrencyCode());
         $payment->setState(PaymentInterface::STATE_NEW);
-        $payment->setDetails([Constants::FIELD_PAID => false, Constants::FIELD_STATUS => Constants::STATUS_PENDING]);
+        $payment->setDetails([
+            Constants::FIELD_PAID => false,
+            Constants::FIELD_STATUS => Constants::STATUS_PENDING
+        ]);
 
         $order->addPayment($payment);
         $transaction->setPayment($payment);
