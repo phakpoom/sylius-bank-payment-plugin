@@ -35,3 +35,4 @@ sylius_resource:
                 model: PhpMob\SyliusBankPaymentPlugin\Model\Transaction
                 interface: PhpMob\SyliusBankPaymentPlugin\Model\TransactionInterface
                 form: PhpMob\SyliusBankPaymentPlugin\Form\Type\TransactionType
+                factory: PhpMob\SyliusBankPaymentPlugin\Factory\TransactionFactory

@@ -61,18 +61,14 @@ final class ApplyPaymentListener
      */
     public function apply(ResourceControllerEvent $event): void
     {
-        $subject = $event->getSubject();
+        $transaction = $event->getSubject();
 
-        if (!$subject instanceof TransactionInterface) {
-            return;
-        }
-
-        if ($subject->getPayment()) {
+        if (!$transaction instanceof TransactionInterface) {
             return;
         }
 
         /** @var OrderInterface $order */
-        if (!$order = $this->orderRepository->findOneByNumber($subject->getOrderNumber())) {
+        if (!$order = $this->orderRepository->findOneByNumber($transaction->getOrderNumber())) {
             return;
         }
 
@@ -90,26 +86,21 @@ final class ApplyPaymentListener
             if (PaymentInterface::STATE_NEW === $payment->getState()
                 && $payment->getMethod()
                 && MyConstants::METHOD_NAME === $payment->getMethod()->getCode()) {
-                $payment->setAmount($subject->getAmount());
-                $payment->setCurrencyCode($order->getCurrencyCode());
-
                 break;
             }
         }
 
         if (empty($payment)) {
-            $payment = $this->paymentFactory->createWithAmountAndCurrencyCode(
-                $subject->getAmount(),
-                $order->getCurrencyCode()
-            );
+            $payment = $this->paymentFactory->createNew();
         }
 
-        $order->addPayment($payment);
-
+        $payment->setAmount($transaction->getAmount());
+        $payment->setCurrencyCode($order->getCurrencyCode());
         $payment->setState(PaymentInterface::STATE_NEW);
         $payment->setDetails([Constants::FIELD_PAID => false, Constants::FIELD_STATUS => Constants::STATUS_PENDING]);
 
-        $subject->setPayment($payment);
+        $order->addPayment($payment);
+        $transaction->setPayment($payment);
 
         $this->smFactory
             ->get($payment, PaymentTransitions::GRAPH)

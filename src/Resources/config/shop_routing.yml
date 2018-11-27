@@ -1,1 +1,18 @@
-# Delete these routes and define your own shop routes here
+#sylius_shop_account_payment_submit:
+#    path: /payment-submit/{paymentId}
+#    methods: [GET, POST]
+#    defaults:
+#        paymentId: ~
+#        _controller: phpmob.controller.transaction:createAction
+#        _sylius:
+#            template: "@SyliusShop/Account/paymentSubmit.html.twig"
+#            form: PhpMob\SyliusBankPaymentPlugin\Form\Type\TransactionType
+#            factory:
+#                method: createNewUserPayment
+#                arguments:
+#                    user: "expr:service('sylius.context.customer').getUser()"
+#                    payment: "expr:service('sylius.repository.payment').find($paymentId)"
+#            redirect:
+#                route: sylius_shop_order_show
+#                parameters:
+#                    tokenValue: resource.order.tokenValue
