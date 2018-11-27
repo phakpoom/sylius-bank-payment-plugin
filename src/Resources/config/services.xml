@@ -12,6 +12,7 @@
         <service id="phpmob.validator.order_number_exists" class="PhpMob\SyliusBankPaymentPlugin\Validator\Constraints\OrderNumberExistsValidator">
             <tag name="validator.constraint_validator" alias="order_number_exists"/>
             <argument type="service" id="sylius.repository.order"/>
+            <argument type="service" id="security.token_storage"/>
         </service>
         <service id="phpmob.listener.images_upload" class="PhpMob\SyliusBankPaymentPlugin\EventListener\ImageUploadListener">
             <argument type="service" id="sylius.image_uploader" />
@@ -24,6 +25,7 @@
             <tag name="kernel.event_listener" event="phpmob.transaction.pre_create" method="apply" />
             <argument type="service" id="sylius.repository.order"/>
             <argument type="service" id="sylius.factory.payment"/>
+            <argument type="service" id="security.token_storage"/>
         </service>
         <service id="phpmob.listener.apply_payment" class="Sylius\Bundle\UiBundle\Block\BlockEventListener">
             <tag name="kernel.event_listener" event="sonata.block.event.sylius.admin.layout.javascripts" method="onBlockEvent" />

@@ -4,7 +4,11 @@ declare(strict_types=1);
 
 namespace PhpMob\SyliusBankPaymentPlugin\Validator\Constraints;
 
+use Sylius\Component\Core\Model\AdminUserInterface;
+use Sylius\Component\Core\Model\OrderInterface;
 use Sylius\Component\Core\Repository\OrderRepositoryInterface;
+use Sylius\Component\User\Model\UserInterface;
+use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
 use Symfony\Component\Validator\Constraint;
 use Symfony\Component\Validator\ConstraintValidator;
 
@@ -15,9 +19,15 @@ class OrderNumberExistsValidator extends ConstraintValidator
      */
     private $repository;
 
-    public function __construct(OrderRepositoryInterface $repository)
+    /**
+     * @var TokenStorageInterface
+     */
+    private $tokenStorage;
+
+    public function __construct(OrderRepositoryInterface $repository, TokenStorageInterface $tokenStorage)
     {
         $this->repository = $repository;
+        $this->tokenStorage = $tokenStorage;
     }
 
     /**
@@ -31,12 +41,32 @@ class OrderNumberExistsValidator extends ConstraintValidator
             return;
         }
 
-        // TODO: 1. should check some thing eg. state?
-        // TODO: 2. should check matched user?
-        if (!$this->repository->findOneByNumber($value)) {
+        /** @var OrderInterface $order */
+        $order = $this->repository->findOneByNumber($value);
+        $user = $this->getUser();
+
+        if (null === $order || (!$user instanceof AdminUserInterface && $order->getUser() !== $user)) {
             $this->context->addViolation($constraint->message, [
                 '{{ value }}' => $value,
             ]);
         }
+    }
+
+    /**
+     * @return null|UserInterface
+     */
+    private function getUser(): ?UserInterface
+    {
+        if (!$token = $this->tokenStorage->getToken()) {
+            return;
+        }
+
+        $user = $token->getUser();
+
+        if (!$user instanceof UserInterface) {
+            return;
+        }
+
+        return $user;
     }
 }
