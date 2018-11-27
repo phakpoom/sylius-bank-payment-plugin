@@ -1,7 +1,7 @@
 {% set payment = data.payment %}
 {% set order = payment.order %}
 <strong>Payment</strong>: {{ data.amount|sylius_format_money(payment.currencyCode, sylius.localeCode) }}<br>
-<strong>State</strong>: <span class="ui label {{ approved' == data.state ? 'green' : 'red'  }} ">{{ data.state|upper }}</span><br>
+<strong>State</strong>: <span class="ui label {{ 'approved' == data.state ? 'green' : 'red' }}">{{ data.state|upper }}</span><br>
 <strong>{{ 'Customer' }}</strong>: {{ data.user ? (data.user.customer.firstName ~ " " ~ data.user.customer.lastName) : '~' }}<br>
 <strong>Transaction Code</strong>: {{ data.transactionCode|default('~') }}<br>
 <strong>Note</strong>: {{ data.note|default('~') }}<br>
