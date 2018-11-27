@@ -25,6 +25,7 @@
             <tag name="kernel.event_listener" event="phpmob.transaction.pre_create" method="apply" />
             <argument type="service" id="sylius.repository.order"/>
             <argument type="service" id="sylius.factory.payment"/>
+            <argument type="service" id="sylius.repository.payment_method"/>
             <argument type="service" id="security.token_storage"/>
             <argument type="service" id="sm.factory"/>
         </service>

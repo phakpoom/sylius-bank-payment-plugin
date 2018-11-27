@@ -12,9 +12,11 @@ use Sylius\Bundle\ResourceBundle\Event\ResourceControllerEvent;
 use Sylius\Component\Core\Model\OrderInterface;
 use Sylius\Component\Core\Model\PaymentInterface;
 use Sylius\Component\Core\Model\AdminUserInterface;
+use Sylius\Component\Core\Model\PaymentMethodInterface;
 use Sylius\Component\Core\Repository\OrderRepositoryInterface;
 use Sylius\Component\Payment\Factory\PaymentFactoryInterface;
 use Sylius\Component\Payment\PaymentTransitions;
+use Sylius\Component\Resource\Repository\RepositoryInterface;
 use Sylius\Component\User\Model\UserInterface;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
@@ -32,6 +34,11 @@ final class ApplyPaymentListener
     private $paymentFactory;
 
     /**
+     * @var RepositoryInterface
+     */
+    private $paymentMethodRepository;
+
+    /**
      * @var TokenStorageInterface
      */
     private $tokenStorage;
@@ -44,12 +51,14 @@ final class ApplyPaymentListener
     public function __construct(
         OrderRepositoryInterface $orderRepository,
         PaymentFactoryInterface $paymentFactory,
+        RepositoryInterface $paymentMethodRepository,
         TokenStorageInterface $tokenStorage,
         FactoryInterface $smFactory
     )
     {
         $this->orderRepository = $orderRepository;
         $this->paymentFactory = $paymentFactory;
+        $this->paymentMethodRepository = $paymentMethodRepository;
         $this->tokenStorage = $tokenStorage;
         $this->smFactory = $smFactory;
     }
@@ -94,6 +103,7 @@ final class ApplyPaymentListener
             $payment = $this->paymentFactory->createNew();
         }
 
+        $payment->setMethod($this->findPaymentMethod());
         $payment->setAmount($transaction->getAmount());
         $payment->setCurrencyCode($order->getCurrencyCode());
         $payment->setState(PaymentInterface::STATE_NEW);
@@ -123,5 +133,16 @@ final class ApplyPaymentListener
         }
 
         return $user;
+    }
+
+    /**
+     * @return null|PaymentMethodInterface
+     */
+    private function findPaymentMethod(): ?PaymentMethodInterface
+    {
+        return \array_pop($this->paymentMethodRepository->findBy([
+            'enabled' => true,
+            'code' => MyConstants::METHOD_NAME
+        ], null, 1));
     }
 }
