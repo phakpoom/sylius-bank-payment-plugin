@@ -96,6 +96,8 @@ final class ApplyPaymentListener
                 && $payment->getMethod()
                 && MyConstants::METHOD_NAME === $payment->getMethod()->getCode()) {
                 break;
+            } else {
+                unset($payment);
             }
         }
 
@@ -140,9 +142,11 @@ final class ApplyPaymentListener
      */
     private function findPaymentMethod(): ?PaymentMethodInterface
     {
-        return \array_pop($this->paymentMethodRepository->findBy([
+        $methods = $this->paymentMethodRepository->findBy([
             'enabled' => true,
             'code' => MyConstants::METHOD_NAME
-        ], null, 1));
+        ], null, 1);
+
+        return \array_pop($methods);
     }
 }

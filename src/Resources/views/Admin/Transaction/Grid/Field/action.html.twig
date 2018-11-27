@@ -2,7 +2,7 @@
     <div class="ui disabled buttons" data-phpmob-action="{{ path('phpmob_admin_transaction_approve', { id: data.id, type: ':type' }) }}">
         <button class="ui positive button" data-transition="approve">{{ 'Approve' }}</button>
         {#<div class="or"></div>#}
-        <button class="ui negative button" data-transition="rejecte">{{ 'Reject' }}</button>
+        <button class="ui negative button" data-transition="reject">{{ 'Reject' }}</button>
     </div>
 {% else %}
     <strong>{{ 'Endorser' }}</strong>: {{ data.endorser ? (data.endorser.username) : '~' }}<br>
