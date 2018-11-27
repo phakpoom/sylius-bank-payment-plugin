@@ -7,12 +7,14 @@ namespace PhpMob\SyliusBankPaymentPlugin\EventListener;
 use Payum\Offline\Constants;
 use PhpMob\SyliusBankPaymentPlugin\Constants as MyConstants;
 use PhpMob\SyliusBankPaymentPlugin\Model\TransactionInterface;
+use SM\Factory\FactoryInterface;
 use Sylius\Bundle\ResourceBundle\Event\ResourceControllerEvent;
 use Sylius\Component\Core\Model\OrderInterface;
 use Sylius\Component\Core\Model\PaymentInterface;
 use Sylius\Component\Core\Model\AdminUserInterface;
 use Sylius\Component\Core\Repository\OrderRepositoryInterface;
 use Sylius\Component\Payment\Factory\PaymentFactoryInterface;
+use Sylius\Component\Payment\PaymentTransitions;
 use Sylius\Component\User\Model\UserInterface;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
@@ -34,19 +36,28 @@ final class ApplyPaymentListener
      */
     private $tokenStorage;
 
+    /**
+     * @var FactoryInterface
+     */
+    private $smFactory;
+
     public function __construct(
         OrderRepositoryInterface $orderRepository,
         PaymentFactoryInterface $paymentFactory,
-        TokenStorageInterface $tokenStorage
+        TokenStorageInterface $tokenStorage,
+        FactoryInterface $smFactory
     )
     {
         $this->orderRepository = $orderRepository;
         $this->paymentFactory = $paymentFactory;
         $this->tokenStorage = $tokenStorage;
+        $this->smFactory = $smFactory;
     }
 
     /**
      * @param ResourceControllerEvent $event
+     *
+     * @throws \SM\SMException
      */
     public function apply(ResourceControllerEvent $event): void
     {
@@ -99,6 +110,10 @@ final class ApplyPaymentListener
         $payment->setDetails([Constants::FIELD_PAID => false, Constants::FIELD_STATUS => Constants::STATUS_PENDING]);
 
         $subject->setPayment($payment);
+
+        $this->smFactory
+            ->get($payment, PaymentTransitions::GRAPH)
+            ->apply(PaymentTransitions::TRANSITION_PROCESS);
     }
 
     /**
