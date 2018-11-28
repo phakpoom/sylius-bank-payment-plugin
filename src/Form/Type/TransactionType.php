@@ -34,6 +34,7 @@ class TransactionType extends AbstractResourceType
             ])
             ->add('amount', MoneyType::class, [
                 'required' => true,
+                'currency' => false,
                 'label' => 'phpmob.form.transaction.amount',
             ])
             ->add('note', TextareaType::class, [
