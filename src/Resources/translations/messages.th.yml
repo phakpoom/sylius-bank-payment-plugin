@@ -30,7 +30,7 @@ phpmob:
             order_number: หมายเลขสั่งซื้อ
             transferred_at: เวลาทำรายการ
             transaction_code: รหัสรายการ
-            amount: ยอดรวม
+            amount: ยอดการโอน
             note: หมายเหตุ
             account: บัญชีธนาคาร
             account_placeholder: ระบุบัญชีธนาคาร
