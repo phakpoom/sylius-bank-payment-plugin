@@ -1,0 +1,37 @@
+phpmob:
+    ui:
+        banks: ธนาคาร
+        new_bank: เพิ่มธนาคารใหม่
+        edit_bank: แก้ไขธนาคาร
+        accounts: บัญชีธนาคาร
+        new_account: เพิ่มบัญชีใหม่
+        edit_account: แก้ไขบัญชี
+        transactions: รายการโอนเงิน
+        new_transaction: เพิ่มการโอนเงิน
+    menu:
+        bank_payment: ชำระผ่านธนาคาร
+        bank_payment_banks: ธนาคาร
+        bank_payment_accounts: บัญชีธนาคาร
+        bank_payment_transactions: รายการโอนเงิน
+    form:
+        account:
+            name: ชื่อบัญชี
+            branch: สาขา
+            address: ที่อยู่
+            note: หมายเหตุ
+            number: เลขบัญชี
+            bank: ธนาคาร
+            translations: รายละเอียด
+        bank:
+            name: ชื่อ
+            logo: โลโก้
+            translations: รายละเอียด
+        transaction:
+            order_number: หมายเลขสั่งซื้อ
+            transferred_at: เวลาทำรายการ
+            transaction_code: รหัสรายการ
+            amount: ยอดรวม
+            note: หมายเหตุ
+            account: บัญชีธนาคาร
+            account_placeholder: ระบุบัญชีธนาคาร
+            slip: หลักฐานยืนยัน

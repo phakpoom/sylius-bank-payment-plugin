@@ -33,4 +33,5 @@ phpmob:
             amount: Amount
             note: Note
             account: Account
+            account_placeholder: Select account
             slip: Slip

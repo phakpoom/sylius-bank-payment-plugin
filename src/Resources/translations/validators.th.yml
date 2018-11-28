@@ -1,0 +1,39 @@
+phpmob:
+    account:
+        number:
+            not_blank: กรุณาระบุหมายเลขบัญชี
+        bank:
+            not_blank: กรุณาระบุธนาคาร
+        name:
+            not_blank: กรุณาระบุชื่อบัญชี
+        branch:
+            not_blank: กรุณาระบุสาขา
+    bank:
+        code:
+            unique: รหัสธนาคารต้องไม่ซ้ำกัน
+            not_blank: กรุณาระบุรหัสธนาคาร
+            regex: รหัสธนาคารต้องไม่มีอักขระพิเศษ
+        name:
+            not_blank: กรุณาระบุชื่อธนาคาร
+    bank_logo:
+        file:
+            max_size: รูปภาพต้องไม่เกิน 2MB.
+            upload_ini_size: ไฟล์ภาพขนาดใหญ่เกินไป
+    slip:
+        file:
+            not_blank: กรุณาแนบหลักฐานการโอนเงิน
+            max_size: รูปภาพต้องมีขนาดไม่เกิน 10MB.
+            upload_ini_size: ไฟล์ภาพขนาดใหญ่เกินไป
+    transaction:
+        order_number:
+            not_blank: กรุณาระบุหมายเลขคำสั่งซื้อ
+            exists: ไม่พบคำสั่งซื้อนี้ในระบบ
+        transferred_at:
+            not_blank: กรุณาระบุเวลาทำรายการโอนเงิน
+        amount:
+            not_blank: กรุณาระบุยอดการโอน
+            greater_than: ยอดการโอนต้องมีค่ามากกว่า 0
+        slip:
+            not_blank: กรุณาแนบหลักฐานการโอนเงิน
+        account:
+            not_blank: กรุณาเลือกบัญชีธนาคารที่คุณโอนเงินเข้า

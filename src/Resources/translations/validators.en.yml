@@ -1,7 +1,7 @@
 phpmob:
     account:
         number:
-            not_blank: Account should not be blank.
+            not_blank: Account's number should not be blank.
         bank:
             not_blank: Bank of account should not be blank.
         name:

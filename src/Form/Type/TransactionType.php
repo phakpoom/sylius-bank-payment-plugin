@@ -42,6 +42,7 @@ class TransactionType extends AbstractResourceType
             ])
             ->add('account', AccountChoiceType::class, [
                 'required' => true,
+                'placeholder' => 'phpmob.form.transaction.account_placeholder',
                 'label' => 'phpmob.form.transaction.account',
             ])
             ->add('slip', SlipType::class, [
